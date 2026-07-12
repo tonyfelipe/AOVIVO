@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-Content-Type-Options" content="nosniff">
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; img-src 'self' data: https:; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; script-src 'self'; connect-src 'self'; frame-src https://www.youtube.com; base-uri 'self'; form-action 'self'">
+    <meta name="referrer" content="strict-origin-when-cross-origin">
+    <meta name="theme-color" content="#0A0A0B">
+
+    <title>AOVIVO | Bares e Restaurantes de SP Transmitindo Agora</title>
+    <meta name="description" content="Veja o movimento real de bares e restaurantes de São Paulo agora, ao vivo. Sem foto editada: almoço, happy hour e shows transmitidos direto do salão.">
+    <meta name="robots" content="index, follow, max-image-preview:large">
+    <link rel="canonical" href="https://aovivo.com.br/">
+    <meta name="author" content="AOVIVO">
+
+    <meta property="og:type" content="website">
+    <meta property="og:site_name" content="AOVIVO">
+    <meta property="og:title" content="AOVIVO | Bares e Restaurantes de SP Transmitindo Agora">
+    <meta property="og:description" content="Ver para crer: o movimento real dos bares de São Paulo, ao vivo, sem edição.">
+    <meta property="og:url" content="https://aovivo.com.br/">
+    <meta property="og:image" content="https://aovivo.com.br/assets/images/og-cover.jpg">
+    <meta property="og:locale" content="pt_BR">
+
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="AOVIVO | Bares de SP Transmitindo Agora">
+    <meta name="twitter:description" content="Ver para crer: o movimento real dos bares de São Paulo, ao vivo.">
+    <meta name="twitter:image" content="https://aovivo.com.br/assets/images/og-cover.jpg">
+
+    <link rel="icon" href="favicon.ico" sizes="any">
+    <link rel="icon" href="assets/icons/favicon-32.png" sizes="32x32" type="image/png">
+    <link rel="apple-touch-icon" href="assets/icons/apple-touch-icon.png">
+    <link rel="manifest" href="manifest.webmanifest">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="dns-prefetch" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "WebSite",
+      "name": "AOVIVO",
+      "url": "https://aovivo.com.br/",
+      "description": "Plataforma que mostra em tempo real o movimento de bares e restaurantes de São Paulo."
+    }
+    </script>
+</head>
+<body>
+    <a class="skip-link" href="#conteudo-principal">Pular para o conteúdo principal</a>
+
+    <header id="topo">
+        <div class="logo-container">
+            <a href="./" aria-label="AOVIVO, página inicial" class="logo">
+                <span class="live-dot" aria-hidden="true"></span>
+                <span class="logo-text">AOVIVO</span>
+            </a>
+        </div>
+        <p class="tagline">Ver para crer. A janela em tempo real dos bares de SP.</p>
+    </header>
+
+    <main id="conteudo-principal">
+        <section class="hero" aria-labelledby="hero-title">
+            <h1 id="hero-title">O movimento real de São Paulo, agora, sem edição.</h1>
+            <p>Almoço, happy hour e shows — direto do salão, transmitidos ao vivo pelos próprios bares parceiros.</p>
+        </section>
+
+        <section class="filtros" aria-label="Filtrar por região de São Paulo">
+            <div class="filtros-grupo" id="filtrosRegiao" role="group" aria-label="Filtro de região">
+                <button type="button" class="filtro-btn is-active" data-regiao="todos">Todos</button>
+                <button type="button" class="filtro-btn" data-regiao="centro">Centro</button>
+                <button type="button" class="filtro-btn" data-regiao="norte">Norte</button>
+                <button type="button" class="filtro-btn" data-regiao="sul">Sul</button>
+                <button type="button" class="filtro-btn" data-regiao="leste">Leste</button>
+                <button type="button" class="filtro-btn" data-regiao="oeste">Oeste</button>
+            </div>
+        </section>
+
+        <section class="grid-section" aria-labelledby="grid-title">
+            <h2 id="grid-title" class="sr-only">Bares e restaurantes</h2>
+            <p id="statusCarregamento" class="status-msg" role="status">Carregando bares…</p>
+            <div class="bares-grid" id="baresGrid"></div>
+            <template id="cardTemplate">
+                <article class="bar-card">
+                    <button type="button" class="bar-card-trigger" aria-expanded="false">
+                        <div class="bar-card-media">
+                            <img class="bar-card-img" src="" alt="" width="400" height="240" loading="lazy" decoding="async">
+                            <span class="badge-ao-vivo" hidden>● AO VIVO</span>
+                            <span class="badge-regiao"></span>
+                        </div>
+                        <div class="bar-card-info">
+                            <h3 class="bar-card-nome"></h3>
+                            <p class="bar-card-bairro"></p>
+                            <p class="bar-card-desc"></p>
+                        </div>
+                    </button>
+                    <div class="bar-card-player" hidden></div>
+                </article>
+            </template>
+        </section>
+
+        <noscript>
+            <section class="noscript-fallback">
+                <p>Este site exibe a lista de bares dinamicamente. Ative o JavaScript no navegador para ver o conteúdo, ou acesse <a href="bares.json">bares.json</a> diretamente.</p>
+            </section>
+        </noscript>
+    </main>
+
+    <footer id="contato">
+        <p class="footer-brand"><span class="live-dot" aria-hidden="true"></span> AOVIVO</p>
+        <p>Quer colocar seu bar no ar? <a href="https://wa.me/5500000000000" target="_blank" rel="noopener noreferrer">Fale com a gente no WhatsApp</a></p>
+        <p class="footer-bottom">&copy; <span id="ano"></span> AOVIVO. Todos os direitos reservados.</p>
+    </footer>
+
+    <script src="script.js" defer></script>
+</body>
+</html>
